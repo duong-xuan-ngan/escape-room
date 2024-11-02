@@ -7,18 +7,15 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <div class="container">
-    <h1 class="title">Typing your answer</h1>
-    <p class="instructions">Type your answer to unlock the next chapter:</p>
-    <form method="POST">
-      <div class="input-container">
-        <input type="text" id="answerInput" name="answer" placeholder="Enter your answer here" required>
-        <input type="hidden" name="attempts" value="{{ attempts }}">
-        <button type="submit">Submit</button>
-      </div>
-    </form>
-    <div id="hint" class="hint"></div>
-    <div id="feedback" class="feedback">{{ message }}</div>
-  </div>
+  <!-- Background image for back.jpg -->
+  <div class="background-image"></div>
+
+  <!-- Form with input area and submit button -->
+  <form method="POST" class="centered-form">
+    <div class="input-container">
+      <input type="text" id="answerInput" name="answer" placeholder="Enter your answer here" required>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
 </body>
 </html>

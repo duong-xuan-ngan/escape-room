@@ -5,8 +5,8 @@ body {
   align-items: center;
   margin: 0;
   min-height: 100vh;
-  
-  /* Background settings - keep only one set */
+
+  /* Main background image for the entire body */
   background-image: url('../static/images/background.jpg');
   background-size: cover;
   background-position: center;
@@ -14,36 +14,67 @@ body {
   background-attachment: fixed;
 }
 
-.container {
-  background: #f9f0d9;
-  border: 2px solid #b58900;
-  padding: 20px;
-  width: 300px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-  text-align: center;
+.background-image {
+  background-image: url('../static/images/back.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  z-index: 0;
 }
 
-.title {
-  font-size: 24px;
-  color: #b58900;
-}
-
-.instructions {
-  font-size: 16px;
-  color: #555;
+.centered-form {
+  position: relative;
+  z-index: 1;
+  background: none; /* Remove background color */
+  padding: 0; /* Remove padding */
+  box-shadow: none; /* Remove any box shadow */
+  border: none; /* Remove border */
 }
 
 .input-container {
-  margin-top: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column; /* Stacks input and button vertically */
+  align-items: center; /* Centers the input and button */
+  gap: 10px; /* Adds space between input and button */
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
 }
 
 input[type="text"] {
   padding: 10px;
   font-size: 16px;
-  border: 2px solid #b58900;
-  outline: none;
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent;
+  color: #333;
+  outline: none !important;
   width: 100%;
-  box-sizing:
+  max-width: 300px; /* Limit the input width */
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  background-color: #b58900;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 100px; /* Limit the button width */
+  text-align: center;
+}
+
+button[type="submit"]:hover {
+  background-color: #a57705;
+}

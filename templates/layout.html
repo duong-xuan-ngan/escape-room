@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Literature Puzzle Game</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Typing your answer</h1>
+    <p class="instructions">Type your answer to unlock the next chapter:</p>
+    <form method="POST">
+      <div class="input-container">
+        <input type="text" id="answerInput" name="answer" placeholder="Enter your answer here" required>
+        <input type="hidden" name="attempts" value="{{ attempts }}">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    <div id="hint" class="hint"></div>
+    <div id="feedback" class="feedback">{{ message }}</div>
+  </div>
+</body>
+</html>

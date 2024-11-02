@@ -10,7 +10,7 @@ body {
 
 /* Background Image Styling */
 body {
-  background-image: url('/path/to/360_F_89884569_0qwlpYHECg96lKsySNXAR1ejgLXcvcml.jpg');
+  background-image: url('../images/background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

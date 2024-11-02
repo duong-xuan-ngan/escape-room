@@ -1,22 +1,18 @@
 body {
-  background-color: #f4f1ea;
   font-family: 'Times New Roman', Times, serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   margin: 0;
-}
-
-/* Background Image Styling */
-body {
-  background-image: url('../images/background.jpg');
+  min-height: 100vh;
+  
+  /* Background settings - keep only one set */
+  background-image: url('../static/images/background.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
 
 .container {
   background: #f9f0d9;

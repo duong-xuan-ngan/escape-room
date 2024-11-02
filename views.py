@@ -3,7 +3,7 @@ from main import Jumpscare
 import tkinter as tk
 import threading
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 app.secret_key = 'your_secret_key_here'  # Set a secret key for session management
 
 jumpscare_instance = None

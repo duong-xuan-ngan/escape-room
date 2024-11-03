@@ -7,15 +7,32 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+  <!-- Title in Calligraphy Style -->
+  <h1 class="calligraphy-title">Truyện Kiều</h1>
+  
   <!-- Background image for back.jpg -->
   <div class="background-image"></div>
+
+  <!-- Decorative images -->
+  <img src="{{ url_for('static', filename='images/mountain.png') }}" class="mountain" alt="Mountain">
+  <img src="{{ url_for('static', filename='images/branch-tree.png') }}" class="branch-tree" alt="Tree Branch">
+  <img src="{{ url_for('static', filename='images/stork.png') }}" class="stork" alt="Stork">
+  <img src="{{ url_for('static', filename='images/group-birds.png') }}" class="group-birds" alt="Birds Group">
+
+  <!-- Poem Background Text -->
+  <div class="poem-text">
+    Trăm năm trong cõi người ta,<br>
+    Chữ tài chữ mệnh khéo là ghét nhau.<br>
+    Trải qua một cuộc bể dâu,<br>
+    Những điều trông thấy mà đau đớn lòng.
+  </div>
 
   <!-- Form with input area and submit button -->
   <form method="POST" class="centered-form">
     <div class="input-container">
       <input type="text" id="answerInput" name="answer" placeholder="Enter your answer here" required>
       <button type="submit">Submit</button>
-    </div>
+    </div>    
   </form>
 </body>
 </html>

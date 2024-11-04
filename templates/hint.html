@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Hints</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f3f3f3;
+    }
+    .hint-container {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      max-width: 500px;
+      width: 90%;
+    }
+    .hint-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .hint-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    .hint-item {
+      display: none;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      font-size: 18px;
+    }
+    .hint-item:last-child {
+      border-bottom: none;
+    }
+    .show-hint-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .show-hint-btn:disabled {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hint-container">
+  <div class="hint-title">Game Hints</div>
+  <ul class="hint-list">
+    <li class="hint-item">Hint 1: Start by examining all visible items in the room.</li>
+    <li class="hint-item">Hint 2: Pay attention to the colors and shapes of objects.</li>
+    <li class="hint-item">Hint 3: Some objects may require you to interact with them to reveal clues.</li>
+    <li class="hint-item">Hint 4: Try combining clues from different areas for a solution.</li>
+    <li class="hint-item">Hint 5: Remember, patience and observation are key to solving puzzles.</li>
+  </ul>
+  <button class="show-hint-btn" onclick="showHint()">Show Next Hint</button>
+</div>
+
+<script>
+  let currentHintIndex = 0;
+  const hints = document.querySelectorAll('.hint-item');
+  const showHintButton = document.querySelector('.show-hint-btn');
+
+  function showHint() {
+    if (currentHintIndex < hints.length) {
+      hints[currentHintIndex].style.display = 'block';
+      currentHintIndex++;
+    }
+    if (currentHintIndex === hints.length) {
+      showHintButton.disabled = true;
+      showHintButton.textContent = 'All Hints Revealed';
+    }
+  }
+</script>
+
+</body>
+</html>

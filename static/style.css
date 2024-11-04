@@ -11,24 +11,24 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
 .poem-text {
-  position: absolute; /* Positioning the poem text absolutely */
-  top: 40%; /* Adjust the vertical position as needed */
+  position: absolute;
+  top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Center horizontally */
-  width: 80%; /* Control the width of the text block */
-  text-align: center; /* Center the text */
-  color: rgba(3, 3, 3, 0.9); /* Dark color for visibility */
-  font-family: 'Brush Script MT', cursive; /* Apply the downloaded calligraphy font */
-  font-size: 28px; /* Font size for the poem */
-  line-height: 1.5; /* Line height for better readability */
-  z-index: 1; /* Make sure it's above the background */
-  padding: 10px; /* Padding around the text */
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+  color: rgba(3, 3, 3, 0.9);
+  font-family: 'Dancing Script', cursive;
+  font-size: 45px;
+  line-height: 1.5;
+  z-index: 1;
+  padding: 10px;
 }
 
-
 .calligraphy-title {
-  font-family: 'Brush Script MT', cursive;
+  font-family: 'Dancing Script', cursive;
   font-size: 100px;
   font-weight: bold;
   color: #333;
@@ -40,6 +40,7 @@ body {
   z-index: 1;
   margin: 0;
 }
+
 
 .branch-tree {
   position: absolute;
@@ -111,7 +112,7 @@ body {
   text-align: center;
   color: rgba(74, 74, 74, 0.8); /* Semi-transparent text color */
   font-family: 'Brush Script MT', cursive;
-  font-size: 24px; /* Adjust the font size */
+  font-size: 25px; /* Adjust the font size */
   line-height: 1.5; /* Line height for better readability */
   padding: 20px;
   pointer-events: none; /* Prevent interaction with the text */
@@ -174,4 +175,11 @@ button[type="submit"]:hover {
   .background-text {
     font-size: 18px;
   }
+}
+@font-face {
+  font-family: 'CustomBrushScript';
+  src: url('path-to-your-font-file.woff2') format('woff2'),
+       url('path-to-your-font-file.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }

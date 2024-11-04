@@ -8,47 +8,61 @@ import threading
 class Jumpscare:
     def __init__(self, master):
         self.master = master
-        self.master.withdraw()
+        # Remove withdraw() to prevent initial delay
         self.master.overrideredirect(True)
         self.master.attributes('-topmost', True)
         pygame.mixer.init()
+        
+        # Preload audio and image during initialization
+        pygame.mixer.music.load('jumpscare3.mp3')
+        
+        # Get screen dimensions immediately
+        self.screen_width = self.master.winfo_screenwidth()
+        self.screen_height = self.master.winfo_screenheight()
+        
+        # Preload and process image
+        self.scare_image = Image.open("jumpscare.jpg")
+        self.scare_image = self.scare_image.resize((self.screen_width, self.screen_height))
+        self.scare_image_tk = ImageTk.PhotoImage(self.scare_image)
+        
+        # Set up window and canvas immediately
+        self.master.geometry(f"{self.screen_width}x{self.screen_height}+0+0")
+        self.canvas = tk.Canvas(self.master, width=self.screen_width, height=self.screen_height)
+        self.canvas.pack()
+        
+        # Trigger immediately
         self.trigger_jumpscare()
     
     def trigger_jumpscare(self):
-        screen_width, screen_height = self.master.winfo_screenwidth(), self.master.winfo_screenheight()
-        window_size = 1000
-        position_x = (screen_width - window_size) // 2
-        position_y = (screen_height - window_size) // 2
-
-        self.master.geometry(f"{window_size}x{window_size}+{position_x}+{position_y}")
+        # Display immediately
         self.master.deiconify()
-
-        self.canvas = tk.Canvas(self.master, width=window_size, height=window_size)
-        self.canvas.pack()
-        self.scare_image = Image.open("scare.png")
-        self.scare_image = self.scare_image.resize((window_size, window_size))
-        self.scare_image_tk = ImageTk.PhotoImage(self.scare_image)
-
+        self.master.lift()
+        self.master.focus_force()
+        
+        # Display the image instantly
         self.canvas.create_image(0, 0, anchor="nw", image=self.scare_image_tk)
-
-        pygame.mixer.music.load('jumpscare.mp3')
+        
+        # Play sound immediately
         pygame.mixer.music.play()
-
-        self.shake_thread = threading.Thread(target=self.shake)
+        
+        # Start shaking without delay
+        self.shake_thread = threading.Thread(target=self.shake, daemon=True)
         self.shake_thread.start()
-
+        
+        # Close after 3 seconds
         self.master.after(3000, self.close_jumpscare)
-
+    
     def shake(self):
         end_time = time.time() + 3
         original_x = self.master.winfo_x()
         original_y = self.master.winfo_y()
-
+        
         while time.time() < end_time:
-            x_offset = random.randint(-200, 200)
-            y_offset = random.randint(-200, 200)
+            x_offset = random.randint(-20, 20)
+            y_offset = random.randint(-20, 20)
             self.master.geometry(f"+{original_x + x_offset}+{original_y + y_offset}")
             self.master.update()
             time.sleep(0.03)
+    
     def close_jumpscare(self):
         self.master.destroy()
